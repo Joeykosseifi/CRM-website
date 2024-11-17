@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Page</title>
+    <link href="CRM-style.css" rel="stylesheet" />
+    <link href="calender.css" rel="stylesheet" />
+    <link href="addTask.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#summary-metrics">Summary Metrics</a></li>
+          <li><a href="#graphs-and-charts">Graphs and Charts</a></li>
+          <li><a href="#task-management">Task Management</a></li>
+          <li><a href="#calendar-event">Calendar Event</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="dashboard">
+        <h1>Dashboard</h1>
+        <p id="par-intro">
+          A <span id="CRM">Customer Relationship Management</span> page that
+          aims to track sales performance, monitor customer interactions and
+          satisfaction, and analyze marketing campaigns.
+        </p>
+      </section>
+
+      <section id="summary-metrics">
+        <h2>Summary Metrics Table</h2>
+        <table class="metrics">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Total Sales</td>
+            <td>$500,000</td>
+          </tr>
+          <tr>
+            <td>New Leads</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>Closed Deals</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Customer Satisfaction</td>
+            <td>90%</td>
+          </tr>
+          <tr>
+            <td>Current Pipeline Value</td>
+            <td>$1,000,000</td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="graphs-and-charts">
+        <h2>Graphs and Charts Section</h2>
+        <table class="charts">
+          <tr>
+            <th>Chart</th>
+            <th>Visualization</th>
+          </tr>
+          <tr>
+            <td>Sales Trends</td>
+            <td>
+              <img src="img2.jpg" alt="Sales Trends Chart" />
+            </td>
+          </tr>
+          <tr>
+            <td>Lead Sources</td>
+            <td>
+              <img src="img3.png" alt="Lead Sources Chart" />
+            </td>
+          </tr>
+          <tr>
+            <td>Conversion Rates</td>
+            <td>
+              <img src="img4.png" alt="Conversion Rates Chart" />
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="task-management">
+        <h2>Task Management</h2>
+
+        <div class="container">
+          <h2>Add New Task</h2>
+          <form
+            id="taskForm"
+            method="post"
+            name="form1"
+            enctype="multipart/form-data"
+          >
+            <p>
+              <label for=""><b>Enter the task name:</b><br /></label>
+              <input
+                type="text"
+                id="task-name"
+                name="task-name"
+                required
+              /><br /><br />
+            </p>
+            <p>
+              <b>Enter your Description:</b><br />
+              <textarea id="task-desc" name="task-desc" required></textarea
+              ><br /><br />
+            </p>
+            <p>
+              <b>Enter Due Date:</b><br />
+              <input
+                type="date"
+                id="task-date"
+                name="task-date"
+                required
+              /><br /><br />
+            </p>
+            <p>
+              <b>What is the task priority?</b><br />
+              <select id="task-priority" name="task-priority" required>
+                <option value="">Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option></select
+              ><br /><br />
+            </p>
+            <p>
+              <b>Task Status:</b><br />
+              <select id="task-status" name="task-status" required>
+                <option value="">Status</option>
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option></select
+              ><br /><br />
+            </p>
+
+            <input type="submit" value="Add Task" />
+          </form>
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Task rows will be added here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="calendar-event">
+        <h2>Calendar Event</h2>
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prevBtn">&lt;</button>
+            <h2 id="monthAndYear">Month Year</h2>
+            <button id="nextBtn">&gt;</button>
+          </div>
+          <div class="calendar-weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days" id="calendarDays">
+            <!-- Days will be inserted here dynamically -->
+          </div>
+        </div>
+
+        <div id="eventModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Event</h3>
+            <input
+              type="text"
+              id="eventInput"
+              placeholder="Event description..."
+            />
+            <button id="addEventBtn">Add Event</button>
+            <button id="deleteEventBtn">Delete Event</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="addTask.js"></script>
+
+  <script src="https://unpkg.com/fullcalendar@5.10.1/main.min.js"></script>
+  <script src="calendar.js">
+   
+  </script>
+</html>
